@@ -1,0 +1,11 @@
+---
+- name: Install Python venv package
+  apt:
+    name: python3-venv
+    state: present
+
+- name: Create a Python virtual environment
+  command: python3 -m venv /opt/venv
+
+- name: Install mysqlclient in the virtual environment
+  command: /opt/venv/bin/pip install mysqlclient

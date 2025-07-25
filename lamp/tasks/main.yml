@@ -1,0 +1,24 @@
+---
+- name: Include Apache tasks
+  include_tasks: apache.yml
+
+- name: Include Nginx tasks
+  include_tasks: nginx.yml
+
+- name: Include PHP tasks
+  include_tasks: php.yml
+  tags: php
+
+- name: Install MySQL dependencies
+  include_tasks: mysql_dependencies.yml
+  tags: mysql
+
+- name: Include MySQL tasks
+  include_tasks: mysql.yml
+  tags: mysql
+
+- name: Update repositories
+  include_tasks: update_repos.yml
+
+- name: Install MySQL dependencies
+  include_tasks: mysql_dependencies.yml

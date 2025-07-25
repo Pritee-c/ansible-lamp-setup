@@ -1,0 +1,27 @@
+# check_dependencies.yml
+---
+- name: Check dependencies on target systems
+  hosts: all
+  become: true
+  tasks:
+    - name: Check if Python is installed
+      command: python3 --version
+      register: python_check
+      ignore_errors: true
+
+    - name: Check if Pip is installed
+      command: pip3 --version
+      register: pip_check
+      ignore_errors: true
+
+    - name: Check if MySQL development libraries are installed
+      shell: dpkg -l | grep mysql
+      register: mysql_check
+      ignore_errors: true
+
+    - name: Display results
+      debug:
+        msg:
+          - "Python: {{ python_check.stdout }}"
+          - "Pip: {{ pip_check.stdout }}"
+          - "MySQL Libraries: {{ mysql_check.stdout }}"

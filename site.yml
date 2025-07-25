@@ -1,0 +1,7 @@
+---
+- name: Install Apache and Nginx using lamp role
+  hosts: target
+  become: yes
+  roles:
+    - lamp
+

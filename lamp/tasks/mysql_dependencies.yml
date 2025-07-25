@@ -1,0 +1,16 @@
+---
+- name: Install MySQL development libraries and Python dependencies
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - default-libmysqlclient-dev
+    - python3-dev
+    - build-essential
+
+- name: Install mysqlclient via pip
+  pip:
+    name: mysqlclient
+    state: present
+    executable: pip3
+    extra_args: "--break-system-packages"

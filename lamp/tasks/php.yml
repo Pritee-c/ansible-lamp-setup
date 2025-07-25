@@ -1,0 +1,15 @@
+# lamp/tasks/php.yml
+---
+- name: Install PHP and required extensions
+  package:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - php
+    - php-mysql
+    - php-cli
+    - php-common
+    - php-gd
+    - php-xml
+    - php-mbstring
+  notify: restart apache

@@ -1,0 +1,37 @@
+# lamp/meta/main.yml
+---
+galaxy_info:
+  author: YourName
+  description: Automated LAMP Stack deployment for 3-server architecture
+  company: YourCompany
+  license: MIT
+  min_ansible_version: 2.9
+  
+  platforms:
+    - name: EL
+      versions:
+        - 7
+        - 8
+    - name: Ubuntu
+      versions:
+        - 18.04
+        - 20.04
+        - 22.04
+    - name: Amazon
+      versions:
+        - 2
+
+  galaxy_tags:
+    - lamp
+    - web
+    - database
+    - loadbalancer
+    - apache
+    - mysql
+    - php
+
+dependencies: []
+
+collections:
+  - community.mysql
+  - ansible.posix

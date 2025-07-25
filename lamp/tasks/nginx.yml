@@ -1,0 +1,14 @@
+---
+- name: Install Nginx
+  apt:
+    name: "{{ nginx_package }}"
+    state: present
+    update_cache: yes
+  notify: restart nginx
+
+- name: Ensure Nginx is running
+  service:
+    name: "{{ nginx_service }}"
+    state: started
+    enabled: yes
+

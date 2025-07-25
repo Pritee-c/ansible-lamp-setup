@@ -1,0 +1,5 @@
+# lamp/vars/main.yml
+mysql_root_password: "SecureRootPassword123"
+mysql_app_db: "lamp_db"
+mysql_app_user: "lamp_user"
+mysql_app_password: "SecureAppPassword123"

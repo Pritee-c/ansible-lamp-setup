@@ -1,0 +1,20 @@
+---
+- name: Install Apache
+  apt:
+    name: "{{ apache_package }}"
+    state: present
+    update_cache: yes
+  notify: restart apache
+
+- name: Deploy Apache index.html
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+  notify: restart apache
+
+- name: Ensure Apache is running
+  service:
+    name: "{{ apache_service }}"
+    state: started
+    enabled: yes
+
